@@ -1,0 +1,19 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+public class showwallet {
+	public static void main(String[] args) throws NamingException, ClassNotFoundException, SQLException {
+		UserBeanRemote service=null;
+		service=(UserBeanRemote)new InitialContext().lookup("CabBookingsEAR/UserBean/remote");
+		List<wallet>wall=service.showwallet();
+		for (wallet wallested: wall) {
+			System.out.println(wallested);
+		}
+	}
+
+}

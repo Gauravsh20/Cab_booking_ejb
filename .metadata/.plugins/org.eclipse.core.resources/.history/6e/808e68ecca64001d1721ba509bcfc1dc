@@ -1,0 +1,18 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.ejb.Remote;
+
+@Remote
+public interface UserBeanRemote {
+	public User searchUser(int userId) throws ClassNotFoundException, SQLException;
+	Driver searchDriver(int driverId) throws ClassNotFoundException, SQLException;
+	List<Driver> showDriver() throws ClassNotFoundException, SQLException;
+	String addBooking(Booking booking) throws ClassNotFoundException, SQLException;
+	List<Wallet> showwallet() throws ClassNotFoundException, SQLException;
+	Booking searchbookid(int bookingid)throws ClassNotFoundException, SQLException;
+	List<Wallet> Searchwallet(int userid)throws ClassNotFoundException, SQLException;
+	String paysuccessfull(int userid,double amt,double wamt,String type) throws ClassNotFoundException, SQLException;
+}

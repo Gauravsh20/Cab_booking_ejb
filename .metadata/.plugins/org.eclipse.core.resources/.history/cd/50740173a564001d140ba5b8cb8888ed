@@ -1,0 +1,8 @@
+package com.java.ejb;
+
+public class showwallet {
+	public static void main(String[] args) {
+		UserBeanRemote service=null;
+	}
+
+}

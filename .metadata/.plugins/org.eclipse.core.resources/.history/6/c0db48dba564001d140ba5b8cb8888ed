@@ -1,0 +1,15 @@
+package com.java.ejb;
+
+import java.util.List;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+public class showwallet {
+	public static void main(String[] args) throws NamingException {
+		UserBeanRemote service=null;
+		service=(UserBeanRemote)new InitialContext().lookup("CabBookingsEAR/UserBean/remote");
+		List<Wall>
+	}
+
+}

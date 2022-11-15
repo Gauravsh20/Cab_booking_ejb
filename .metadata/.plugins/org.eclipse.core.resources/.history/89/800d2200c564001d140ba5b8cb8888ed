@@ -1,0 +1,81 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+public class Payamount {
+	public static void main(String[] args) throws NamingException, ClassNotFoundException, SQLException {
+		 UserBeanRemote service=null;
+		 service=(UserBeanRemote)new InitialContext().lookup("CabBookingsEAR/UserBean/remote");
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter Booking id");
+			int id=sc.nextInt();
+				try {
+					Booking book=service.searchbookid(id);
+					System.out.println(service.searchbookid(id));
+					int userid=book.getUserId();
+					System.out.println(book.getAmt());
+					
+					List<Wallet>wall=service.Searchwallet(userid);
+					String type;
+					double phnpayamt=0;
+					double ptmamt=0;
+					double gpay=0;
+					for (Wallet wallested: wall) {
+						System.out.println("Wallet Type :"+ wallested.getWallet_Type());
+						
+						if (wallested.getWallet_Type().equals("PAYTM")) {
+							ptmamt = wallested.getWalletAmount();
+							System.out.println("Amount : "+ ptmamt);
+						}
+						if (wallested.getWallet_Type().equals("PHONEPE")) {
+							phnpayamt = wallested.getWalletAmount();
+							System.out.println("Amount : "+ phnpayamt);
+						}
+						if (wallested.getWallet_Type().equals("GPAY")) {
+							phnpayamt = wallested.getWalletAmount();
+							System.out.println("Amount : "+ phnpayamt);
+						}
+						System.out.println("");
+					}
+				
+					} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("Select The Wallet Type 1 OR 2");
+				int no=sc.nextInt();
+				switch(no){
+				 
+		   		case 1:
+		   			
+		   			break;
+		 
+		   		case 2:
+		 
+		   			System.out.println("Month of February");break;
+		   			
+		   		case 3:
+		   		 
+		   			System.out.println("Month of February");break;
+		 
+
+		   		default:
+		 
+		   			System.out.println("INVALID INPUT");						
+		   	}
+			}
+
+	private static String String(String wallet_Type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.java.ejb;
+
+public class wallet {
+	 
+	private String wallettype;
+	private int userid;
+	private double amt;
+
+}
